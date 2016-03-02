@@ -1,0 +1,90 @@
+<form data-request="onUpdateEvent" data-request-update="'EventForm::list': '#eventinfo'">
+        <input type="hidden" name="id" value="{% if not is_copy %}{{ __SELF__.myevent.id  }}{% endif %}">
+
+
+    <div class="row">
+    <div class="col-md-6">
+        <label for="DatePicker-formDate-input-date">
+        Date
+        </label>
+        <div
+            id="DatePicker-formDate-date"
+            class="field-datepicker"
+            data-control="datepicker"
+            data-min-date="2015-01-01 00:00:00"
+            data-max-date="{{ date()|date("Y") +5 }}-12-31 00:00:00">
+            <div class="input-with-icon">
+                <i class="icon icon-calendar-o"></i>
+                <input
+                    type="text"
+                    id="DatePicker-formDate-input-date"
+                    name="date"
+                    value="{{ __SELF__.myevent.date }}"
+                    class="form-control"
+                    autocomplete="off"
+                     />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6"
+        data-field-name="time"
+        id="Form-field-Event-time-group">
+        <label for="Form-field-Event-time">
+        {{ __SELF__.trans('kurtjensen.mycalendar::lang.event.time') }}
+        </label>
+        <div
+            id="DatePicker-formTime-time"
+            data-control="timepicker"
+            class="field-timepicker clockpicker">
+            <div class="input-with-icon right-align">
+                <i class="icon icon-clock-o"></i>
+                <input
+                    type="text"
+                    id="DatePicker-formTime-input-time"
+                    name="time"
+                    value="{{ __SELF__.myevent.time }}"
+                    class="form-control align-right"
+                    autocomplete="off"
+                    data-autoclose="true"
+                    data-placement="bottom"
+                    data-align="right"
+                     />
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="form-group">
+        <label for="Form-field-myevent-phone">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.name') }}</label>
+        <input type="text" name="name" id="Form-field-myevent-name" value="{{ __SELF__.myevent.name }}" placeholder="{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.phold_name') }}" class="form-control" maxlength="255">
+    </div>
+    <div class="form-group">
+        <label for="Form-field-myevent-text">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.text') }}</label>
+        <textarea type="text" name="text" id="Form-field-myevent-text" placeholder="{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.phold_text') }}" class="form-control">{{ __SELF__.myevent.text }}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="Form-field-myevent-category_id">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.category') }}</label>
+        {{ categorylist|raw  }}
+    </div>
+{% if __SELF__.allowpublish %}
+    <div class="form-group">
+        <input type="checkbox" id="Form-field-myevent-is_published" name="is_published" value="1"
+            {% if __SELF__.myevent.is_published %} checked="checked"{% endif %}>
+        <label for="Form-field-myevent-is_published">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event.is_published') }}</label><br />
+    </div>
+{% endif %}
+    <div class="form-group">
+        <button type="submit" 
+            data-hotkey="ctrl+s, cmd+s" 
+            data-load-indicator="{{ __SELF__.trans('kurtjensen.mycalendar::lang.event_form.saving') }}" 
+            class="btn btn-primary">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event_form.btn_save') }}</button>
+
+    <span class="btn-text">
+        or <a href="">{{ __SELF__.trans('kurtjensen.mycalendar::lang.event_form.btn_cancel') }}</a>
+    </span>
+    </div>
+</form>
+{% if __SELF__.ckeditor %}
+<script>
+    CKEDITOR.replace( 'text' );
+</script>
+{% endif %}
