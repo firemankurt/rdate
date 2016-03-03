@@ -37,7 +37,7 @@ $this->addCss('/modules/backend/formwidgets/datepicker/assets/vendor/clockpicker
 
         $this->addJs('/plugins/kurt/test/assets/js/scheduler.js');
         //$this->addCss('//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css');
-        $this->addCss('/plugins/kurt/test/assets/css/fuelux.min.css');
+        $this->addCss('/plugins/kurt/test/assets/css/fuelux.css');
         //$this->addJs('//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js');
         $this->addJs('/plugins/kurt/test/assets/js/fuelux.js');
     }

@@ -815,12 +815,17 @@ label.fuelux .checkbox-inline {
 }
 .fuelux .datepicker-calendar-days td,
 .fuelux .datepicker-calendar-days th {
-  font-size: 14px;
-  height: 32px;
+  font-size: 0.9em;  /* kurt */
+  /* height: 32px; */
   text-align: center;
   vertical-align: middle;
   width: 14.29%;
 }
+
+/* kurt */
+#myStartDate {min-width: 106px;}
+
+
 .fuelux .datepicker-calendar-days td b,
 .fuelux .datepicker-calendar-days td button {
   color: #333333;
@@ -831,7 +836,7 @@ label.fuelux .checkbox-inline {
   width: 30px;
 }
 .fuelux .datepicker-calendar-days td b {
-  line-height: 30px;
+  /* line-height: 30px; */ /* kurt */
 }
 .fuelux .datepicker-calendar-days td span {
   display: block;
@@ -1012,6 +1017,8 @@ label.fuelux .checkbox-inline {
   color: #878787;
 }
 .fuelux .datepicker-calendar-wrapper {
+  position:absolute;
+  right: -150px; /* kurt */
   border: 1px solid #757575;
   min-height: 20px;
   padding: 0;
