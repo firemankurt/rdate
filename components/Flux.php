@@ -3,7 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Lang;
 
-class Rrdate extends ComponentBase
+class Flux extends ComponentBase
 {
     public $rdate = '';
     public $myevent = [];
@@ -11,7 +11,7 @@ class Rrdate extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'Rrdate Component',
+            'name' => 'Flux Component',
             'description' => 'No description provided yet...',
         ];
     }
@@ -30,17 +30,17 @@ class Rrdate extends ComponentBase
 
     public function onRender()
     {
-
-        $this->addJs('/modules/backend/formwidgets/datepicker/assets/js/build-min.js');
-        $this->addCss('/modules/backend/formwidgets/datepicker/assets/css/datepicker.css');
-        $this->addCss('/modules/backend/formwidgets/datepicker/assets/vendor/pikaday/css/pikaday.css');
-        $this->addCss('/modules/backend/formwidgets/datepicker/assets/vendor/clockpicker/css/jquery-clockpicker.css');
-
+/*
+$this->addJs('/modules/backend/formwidgets/datepicker/assets/js/build-min.js');
+$this->addCss('/modules/backend/formwidgets/datepicker/assets/css/datepicker.css');
+$this->addCss('/modules/backend/formwidgets/datepicker/assets/vendor/pikaday/css/pikaday.css');
+$this->addCss('/modules/backend/formwidgets/datepicker/assets/vendor/clockpicker/css/jquery-clockpicker.css');
+ */
         $this->addJs('/plugins/kurt/test/assets/js/scheduler.js');
         //$this->addCss('//www.fuelcdn.com/fuelux/3.13.0/css/fuelux.min.css');
-        //$this->addCss('/plugins/kurt/test/assets/css/fuelux.css');
+        $this->addCss('/plugins/kurt/test/assets/css/fuelux.css');
         //$this->addJs('//www.fuelcdn.com/fuelux/3.13.0/js/fuelux.min.js');
-        //$this->addJs('/plugins/kurt/test/assets/js/fuelux.js');
+        $this->addJs('/plugins/kurt/test/assets/js/fuelux.js');
     }
 
     public function onProcess()
@@ -51,17 +51,12 @@ class Rrdate extends ComponentBase
 
     public function processPost()
     {
-        foreach (post() as $key => $value) {
-            $fields[] = $key . '=' . (is_array($value) ? implode(',', $value) : strtoupper($value));
-
-        }
-        return $this->rdate = implode('<br/>', $fields);
+        return $this->rdate = post('RRULE');
         $rdate = '';
     }
 
     public function trans($string)
     {
-        //return Lang::get('kurtjensen.mycalendar::lang.' . $string);
         return Lang::get($string);
     }
 

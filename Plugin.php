@@ -34,6 +34,7 @@ class Plugin extends PluginBase
 
         return [
             'Kurt\Test\Components\Rrdate' => 'Rrdate',
+            'Kurt\Test\Components\Flux' => 'Flux',
         ];
     }
 

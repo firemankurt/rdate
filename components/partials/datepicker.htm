@@ -1,0 +1,24 @@
+
+<!-- datepicker partial start-->
+            <label for="DatePicker-form-{{ name }}">
+            {{ label }}
+            </label>
+            <div
+                id="DatePicker-form-{{ name }}"
+                class="field-datepicker"
+                data-control="datepicker"
+                data-min-date="2015-01-01 00:00:00"
+                data-max-date="{{ date()|date("Y") +5 }}-12-31 00:00:00">
+                <div class="input-with-icon">
+                    <i class="icon icon-calendar-o"></i>
+                    <input
+                        type="text"
+                        id="DatePicker-form-input-{{ name }}"
+                        name="date"
+                        value="{{ value }}"
+                        class="form-control {{ class }}"
+                        autocomplete="off"
+                         />
+                </div>
+            </div>
+<!-- datepicker partial end-->

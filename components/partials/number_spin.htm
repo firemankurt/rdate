@@ -1,0 +1,8 @@
+<!-- nuber_spin partial start -->
+            <label for="NumberSpin-form-{{ name }}">{{ label }}</label>
+            <select class="form-control custom-select {{ class }}" id="NumberSpin-form-{{ name }}" name="{{ name }}"  disabled>
+{% for i in 1..max %}
+                <option value="{{ i }}">{{ i }}</option>
+{% endfor %}
+            </select>
+<!-- day_num_of_month partial start -->
